@@ -61,6 +61,7 @@ const uploadOnCloudinary = async (localFilePath) => {
     })
     //file uoploaded susccesfully
     console.log("file is uploaded in cloudinary",response.url)
+    fs.unlinkSync(localFilePath)
     return response;
   } catch (error) {
     fs.unlinkSync(localFilePath) //remove the locally saved trempory file as the upload operation got failed
